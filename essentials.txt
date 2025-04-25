@@ -1,0 +1,27 @@
+# Commands to run Developed APIs
+#set FLASK_APP=C:\Users\fgfhf\news.py
+#python -m flask run
+
+
+# for import
+curl -X POST "http://127.0.0.1:5000/api/articles/import" -H "Content-Type: application/json" -d "{\"link\": \"https://www.huffingtonpost.com/entry/patrick-murphy-iran-deal_us_55e49fa9e4b0b7a96339d960\", \"headline\": \"Rep. Patrick Murphy Comes Out In Favor Of Iran Deal\", \"category\": \"POLITICS\", \"short_description\": \"Many other Florida Democrats remain undecided.\", \"authors\": \"Amanda Terkel\", \"date\": 1440979200000}"
+#for Export
+curl -X GET "http://127.0.0.1:5000/api/articles/export?start_date=2024-01-01&end_date=2024-12-31&categories=POLITICS"
+#For Creating Endpoints
+curl -X POST "http://127.0.0.1:5000/api/categories" -H "Content-Type: application/json" -d "{\"name\": \"New Category\"}"
+# For Update
+curl -X PUT "http://127.0.0.1:5000/api/categories/category-id" -H "Content-Type: application/json" -d "{\"name\": \"Updated Category\"}"
+# For Delete
+curl -X DELETE "http://127.0.0.1:5000/api/categories/category-id"
+# For Listing
+curl -X GET "http://127.0.0.1:5000/api/categories"
+
+example JSON format for Postman If want to testt
+{
+    "link": "https://www.huffingtonpost.com/entry/patrick-murphy-iran-deal_us_55e49fa9e4b0b7a96339d960",
+    "headline": "Rep. Patrick Murphy Comes Out In Favor Of Iran Deal",
+    "category": "POLITICS",
+    "short_description": "Many other Florida Democrats remain undecided.",
+    "authors": "Amanda Terkel",
+    "date": 1440979200000
+}
